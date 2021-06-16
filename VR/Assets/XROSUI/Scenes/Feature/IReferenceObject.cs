@@ -3,6 +3,7 @@ using UnityEngine;
 
 public interface IReferenceObject
 {
-    Vector3 GetDeltaPosition();
-    Quaternion GetDeltaRotation();
+    GameObject GetGameObject();
+    Vector3 GetCurrentPosition();
+    Quaternion GetCurrentRotation();
 }

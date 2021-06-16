@@ -8,6 +8,7 @@ public class BagOfHolding : MonoBehaviour, IReferenceObject
     public GameObject peekWindow;
     
     #region Properties
+    [Header("Debug Purpose")]
     [SerializeField] private GameObject remoteGate;
     public GameObject RemoteGateGO
     {
@@ -24,18 +25,21 @@ public class BagOfHolding : MonoBehaviour, IReferenceObject
         }
     }
 
-    public CounterHelper detachCountdown = new CounterHelper("DetachCountdown", 30);
+    public CounterHelper detachCountdown = new CounterHelper("DetachCountdown", 3000);
     #endregion
 
     #region IReferenceObject
+    public GameObject GetGameObject()
+    {
+        return gameObject;
+    }
 
-    public Transform beginTran;
-    public Vector3 GetDeltaPosition()
+    public Vector3 GetCurrentPosition()
     {
         return transform.position;
     }
 
-    public Quaternion GetDeltaRotation()
+    public Quaternion GetCurrentRotation()
     {
         return transform.rotation;
     }
@@ -46,8 +50,12 @@ public class BagOfHolding : MonoBehaviour, IReferenceObject
         Deactivate();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
+    {
+        Setup();
+    }
+
+    void FixedUpdate()
     {
         if (detachCountdown.IsReachLimit(false))
         {
@@ -64,16 +72,22 @@ public class BagOfHolding : MonoBehaviour, IReferenceObject
     public void Setup(GameObject remoteGateGO =null)
     {
         if (remoteGateGO != null)
-            this.RemoteGateGO = remoteGateGO;
+            RemoteGateGO = remoteGateGO;
             
         rGate =  RemoteGateGO?.GetComponent<RemoteGate>();
         if (rGate == null)
             return;
 
-        var initData = new RemoteGateInitData();
+        var initData = new RemoteGateInitData()
+        {
+            refObject = this
+        };
         rGate.Init(initData);
     }
     
+    /// <summary>
+    /// Called when Grabbed?
+    /// </summary>
     public void Activate()
     {
         //Begin AutoDetach
@@ -88,6 +102,9 @@ public class BagOfHolding : MonoBehaviour, IReferenceObject
         peekWindow.SetActive(true);
     }
 
+    /// <summary>
+    /// Called when Released
+    /// </summary>
     public void Deactivate()
     {
         detachCountdown.Run(false);

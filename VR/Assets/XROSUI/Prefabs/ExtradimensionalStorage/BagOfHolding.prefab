@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5811062be6391e14d9c78ebe33b4530f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peekWindow: {fileID: 0}
+  peekWindow: {fileID: 6739378132237029518}
   remoteGate: {fileID: 0}
   detachCountdown:
     name: DetachCountdown

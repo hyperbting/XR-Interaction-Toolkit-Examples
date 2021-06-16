@@ -40,12 +40,14 @@ public class CounterHelper
 
     public void Increment()
     {
-        current++;
+        if(counting)
+            current++;
     }
 
     public void Reset()
     {
         current = 0;
+        counting = false;
     }
 
     public void Run(bool start)
