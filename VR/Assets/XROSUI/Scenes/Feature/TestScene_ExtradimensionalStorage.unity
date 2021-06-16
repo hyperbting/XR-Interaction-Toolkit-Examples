@@ -190,6 +190,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b2122f2d3f4a274fa6029bca004638c, type: 3}
+--- !u!4 &770723530 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2236840549747735737, guid: 3ffddba94a86e3a43b3fd0d684d061d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3727202079057787757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &808393563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -579,6 +585,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1558742690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3946988250621828743, guid: 3ffddba94a86e3a43b3fd0d684d061d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3727202079057787757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1672596650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -904,6 +916,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BagOfHolding
       objectReference: {fileID: 0}
+    - target: {fileID: 4565991308352319444, guid: fc89ad753ae71d446b0ffc4b69a642db,
+        type: 3}
+      propertyPath: beginTran
+      value: 
+      objectReference: {fileID: 770723530}
+    - target: {fileID: 4565991308352319444, guid: fc89ad753ae71d446b0ffc4b69a642db,
+        type: 3}
+      propertyPath: remoteGate
+      value: 
+      objectReference: {fileID: 1558742690}
     - target: {fileID: 4699255838795038546, guid: fc89ad753ae71d446b0ffc4b69a642db,
         type: 3}
       propertyPath: m_RootOrder
